@@ -1,44 +1,36 @@
 #include<iostream>
 using namespace std;
-class info
+class base
 {
-    string s1;
-    int roll;
-public:
-    void set()
-    {
-        cin>>s1>>roll;
-    }
-    void get()
-    {
-        cout<<s1<<endl<<roll<<endl;
-    }
+  public:
+      int roll;
+      int year;
+      base(int x,int p)
+      {
+          roll=x;
+          year=p;
+      }
 };
-class student : public info
-
+class derive:public base
 {
+public:
     int section;
-    double cgpa;
-public:
-  void  sete()
+    derive(int x,int p,int g):base( x,p)
     {
-        cin>>section>>cgpa;
+        section=g;
     }
-   void gets()
-   {
-       cout<<section<<endl<<cgpa<<endl;
-   }
-   int printf()
-   {
-       set();
-       get();
-       sete();
-       gets();
-   }
+    void show()
+    {
+        cout<<roll<<endl<<year<<endl<<section<<endl;
+
+    }
 };
+
+
 int main()
 {
-   student ob1;
-   ob1.printf();
-return 0;
+   derive ob1(53,2022,2);
+   ob1.show();
+   return 0;
+
 }
